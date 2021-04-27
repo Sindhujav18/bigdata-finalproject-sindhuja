@@ -75,7 +75,7 @@ sindhujaresults = word_Count_RDD.collect()
 - Sorting a list of tuples by the second value, which will be used to reorder the list's tuples. Tuples' second values are mentioned in ascending order. The top 15 words are shown in print below.
 
 ```results.sort(key=lambda x:x[1])
-results.reverse()
+sindhujaresults.reverse()
 print(sindhujaresults[:15])
 ```
 - The library mathplotlib will be used to graph the results. By plotting the x and y axes, we can show any form of graph.
