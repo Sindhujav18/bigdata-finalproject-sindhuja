@@ -3,6 +3,10 @@
 ## Author:
 - Sindhuja Valeti.
 
+## Project File:
+Here is the project that I have created in Databrick notebook.
+[My BigData Final Project](https://github.com/Sindhujav18/bigdata-finalproject-sindhuja/blob/main/sindhuja-finalproject.ipynb)
+
 ## Text Data
 - Text Data Source: [The Conchologist's First Book](https://www.gutenberg.org/files/65171/65171-0.txt)
 
@@ -100,8 +104,8 @@ plt.figure(figsize=(15,5))
 sns.barplot(xlabel, ylabel, data=df, palette="rocket").set_title(title)
 ```
 # Charting Results
-![]()
-![]()
+![image1](https://github.com/Sindhujav18/bigdata-finalproject-sindhuja/blob/main/sindhujafinal1.PNG)
+![image2](https://github.com/Sindhujav18/bigdata-finalproject-sindhuja/blob/main/sindhujafinal2.PNG)
 
 # References
 - [guru99](https://www.guru99.com/pyspark-tutorial.html)
