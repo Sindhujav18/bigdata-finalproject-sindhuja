@@ -72,27 +72,37 @@ word_Count_RDD = IKV_Pairs_RDD.reduceByKey(lambda acc, value: acc+value)
 sindhujaresults = word_Count_RDD.collect()
 ```
 
-- Sorting a list of tuples by the second value, which will be used to reorder the list's tuples. Tuples' second values are mentioned in ascending order. The top 15 words are shown in print below.
+- Sorting a list of tuples by the second value, which will be used to reorder the list's tuples. Tuples' second values are mentioned in ascending order. The top 10 words are shown in print below.
 
-```results.sort(key=lambda x:x[1])
-sindhujaresults.reverse()
-print(sindhujaresults[:15])
+```
+sindhujaresults = word_Count_RDD.map(lambda x: (x[1], x[0])).sortByKey(False).take(10)
+print(sindhujaresults)
 ```
 - The library mathplotlib will be used to graph the results. By plotting the x and y axes, we can show any form of graph.
 ```
-mostCommon=sindhujaresults[1:5]
-word,count = zip(*mostCommon)
+import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
-fig = plt.figure()
-plt.bar(word,count,color="Lavender")
-plt.xlabel("Words")
-plt.ylabel("Number of times used")
-plt.title("Most used words in "The Conchologist's First Book")
-plt.show()
+import seaborn as sns
+from collections import Counter
+
+source = 'The Conchologist s First Book'
+title = 'Top 10 Words in ' + source
+xlabel = 'Count'
+ylabel = 'Words'
+
+# create Pandas dataframe from list of tuples
+df = pd.DataFrame.from_records(sindhujaresults, columns =[xlabel, ylabel]) 
+print(df)
+
+# create plot (using matplotlib)
+plt.figure(figsize=(15,5))
+sns.barplot(xlabel, ylabel, data=df, palette="rocket").set_title(title)
 ```
 # Charting Results
 ![]()
 ![]()
 
 # References
-- []()
+- [guru99](https://www.guru99.com/pyspark-tutorial.html)
+- [Databricks Wikipedia](https://en.wikipedia.org/wiki/Databricks)
